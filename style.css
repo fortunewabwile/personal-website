@@ -1,0 +1,155 @@
+/* ---------- Design tokens (original design colors) ---------- */
+:root {
+  --bg: #f4f6f8;
+  --dark: #1e293b;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --card: #ffffff;
+  --soft: #f8fafc;
+  --chip: #e2e8f0;
+  --border: #e2e8f0;
+  --text: #2b2b2b;
+  --muted: #444444;
+  --light-text: #cbd5e1;
+  --mono: 'JetBrains Mono', Consolas, monospace;
+}
+
+/* ---------- Base / Reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Header / Nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 16px 20px;
+}
+
+.nav a { color: #ffffff; font-weight: 500; transition: color 0.2s ease; }
+.nav a:hover { color: #93c5fd; }
+
+/* ---------- Hero (centered) ---------- */
+.hero {
+  background-color: var(--dark);
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 20px 90px;
+}
+
+.eyebrow { font-family: var(--mono); color: #93c5fd; margin-bottom: 6px; }
+.hero h1 { font-size: 2.8rem; margin-bottom: 8px; }
+.subtitle { font-size: 1.1rem; color: var(--light-text); margin-bottom: 28px; }
+
+.hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.btn:hover { background-color: var(--accent-dark); border-color: var(--accent-dark); }
+
+.btn-outline { background-color: transparent; border-color: #93c5fd; color: #93c5fd; }
+.btn-outline:hover { background-color: rgba(147, 197, 253, 0.15); border-color: #93c5fd; }
+
+/* ---------- Sections (white cards) ---------- */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 70px;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.num { font-family: var(--mono); font-size: 1rem; font-weight: 400; color: var(--accent); margin-right: 8px; }
+
+/* ---------- About ---------- */
+.about-card { margin-bottom: 15px; }
+.about-card h3 { font-size: 1.4rem; color: var(--dark); }
+.role { color: var(--accent); font-weight: 500; }
+.bio { color: var(--muted); margin-bottom: 20px; }
+
+/* ---------- Skills ---------- */
+.skills-list { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+
+.skills-list li {
+  background-color: var(--chip);
+  color: var(--dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ---------- Projects grid ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.project-card {
+  background-color: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); }
+
+.project-card img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+}
+
+.project-card h3 { padding: 15px 15px 5px; color: var(--dark); }
+.project-card p { padding: 0 15px 20px; font-size: 0.95rem; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.site-footer { text-align: center; padding: 20px; color: #64748b; font-size: 0.9rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .section { padding: 20px; margin: 30px 12px; }
+  .nav { gap: 16px; }
+}
